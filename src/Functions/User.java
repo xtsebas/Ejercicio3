@@ -7,10 +7,10 @@ public class User {
     private static int amountbooks;
 
     public User(){
-        name="";
-        In=000000;
-        direction="";
-        amountbooks=0;
+        name=getName();
+        In=getIn();
+        direction=getDirection();
+        amountbooks=getAmountbooks();
     }
 
     public static String getName() {
