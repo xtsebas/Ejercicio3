@@ -1,10 +1,10 @@
-package Functions;
+package Library;
 
 public class Book {
-    private String editorial;
-    private String autor;
+    private static String editorial;
+    private static String autor;
 
-    public String getAutor() {
+    public static String getAutor() {
         return autor;
     }
 
@@ -12,7 +12,7 @@ public class Book {
         this.autor = autor;
     }
 
-    public String getEditorial() {
+    public static String getEditorial() {
         return editorial;
     }
 

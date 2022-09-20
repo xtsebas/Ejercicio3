@@ -1,10 +1,10 @@
-package Functions;
+package Library;
 
 public class Magazine {
-    private int year;
-    private int number;
+    private static int year;
+    private static int number;
 
-    public int getYear() {
+    public static int getYear() {
         return year;
     }
 
@@ -12,7 +12,7 @@ public class Magazine {
         this.year = year;
     }
 
-    public int getNumber() {
+    public static int getNumber() {
         return number;
     }
 

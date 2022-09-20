@@ -1,9 +1,9 @@
-package Functions;
+package Library;
 
 public class Article {
-    private String referee;
+    private static String referee;
 
-    public String getReferee() {
+    public static String getReferee() {
         return referee;
     }
 
