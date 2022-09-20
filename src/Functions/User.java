@@ -1,19 +1,27 @@
 package Functions;
 
+import java.util.Scanner;
+
 public class User {
     private static String name;
     private static int In;
     private static String direction;
     private static int amountbooks;
+    Scanner in= new Scanner(System.in);
 
     public User(){
-        name=getName();
-        In=getIn();
-        direction=getDirection();
-        amountbooks=getAmountbooks();
+        System.out.println("/////////////////////////////////////////////");
+        System.out.println("Ingrese su nombre: ");
+        setName(in.nextLine());
+        System.out.println("Ingrese su numero de identificacion: ");
+        setIn(in.nextInt());
+        System.out.println("Ingrese su direccion: ");
+        setDirection(in.nextLine());
+        System.out.println("Ingrese cuantos libros/revistas/articulos tiene en su posesion: ");
+        setAmountbooks(in.nextInt());
     }
 
-    public static String getName() {
+    public String getName() {
         return name;
     }
 
@@ -21,7 +29,7 @@ public class User {
         User.name = name;
     }
 
-    public static int getIn() {
+    public int getIn() {
         return In;
     }
 
@@ -29,7 +37,7 @@ public class User {
         In = in;
     }
 
-    public static String getDirection() {
+    public String getDirection() {
         return direction;
     }
 
@@ -37,7 +45,7 @@ public class User {
         User.direction = direction;
     }
 
-    public static int getAmountbooks() {
+    public int getAmountbooks() {
         return amountbooks;
     }
 
