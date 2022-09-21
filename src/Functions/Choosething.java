@@ -46,7 +46,7 @@ public class Choosething {
             autor=Book.getAutor();
             editorial=Book.getEditorial();
         } else if (getThing()==2) {
-            newarticle();
+            newmagazine();
             year=Magazine.getYear();
             number=Magazine.getNumber();
         } else if (getThing()==3) {
