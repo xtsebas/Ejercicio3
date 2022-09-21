@@ -2,6 +2,7 @@ package Model;
 
 import Functions.Choosething;
 import Functions.User;
+import Library.Magazine;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,7 @@ public class Controller {
     static List<User> USER= new ArrayList<>();
     static List<Choosething> things= new ArrayList<>();
     static Scanner in= new Scanner(System.in);
+    private static int libro;
     public static User newuser(){
         User user= new User();
         USER.add(user);
@@ -62,12 +64,12 @@ public class Controller {
     public static void lend(){
         for (Choosething choosething: things){
             System.out.println("//////////////////////////////////////////////");
-            for (int i = 1; i < things.size(); i++) {
-                System.out.println(i + ". " + choosething.getTitle() + ": " + choosething.getCondition());
+            for (int i = 1; i < things.size()+1 ; i++) {
+                System.out.println( i + ". " + choosething.getTitle() + ": " + choosething.getCondition());
             }
-            System.out.println(choosething.getTitle() + ": " + choosething.getCondition());
-            System.out.println("Cual desea?");
-
         }
+        System.out.println("Que libro desea? ");
+        libro=in.nextInt();
+        if ()
     }
 }
