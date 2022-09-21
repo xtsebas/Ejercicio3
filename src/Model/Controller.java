@@ -70,6 +70,5 @@ public class Controller {
         }
         System.out.println("Que libro desea? ");
         libro=in.nextInt();
-        if ()
     }
 }
