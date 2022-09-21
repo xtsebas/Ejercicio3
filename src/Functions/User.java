@@ -15,13 +15,14 @@ public class User {
         setName(in.nextLine());
         System.out.println("Ingrese su numero de identificacion: ");
         setIn(in.nextInt());
+        in.nextLine();
         System.out.println("Ingrese su direccion: ");
         setDirection(in.nextLine());
         System.out.println("Ingrese cuantos libros/revistas/articulos tiene en su posesion: ");
         setAmountbooks(in.nextInt());
     }
 
-    public String getName() {
+    public static String getName() {
         return name;
     }
 
