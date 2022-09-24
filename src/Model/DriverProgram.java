@@ -18,7 +18,7 @@ public class DriverProgram {
         opcion=scanner.nextInt();
             switch (opcion){
                 case 1:
-                    Controller.newchoose();
+                    Controller.newChoose();
                     break;
                 case 2:
                     Controller.searchID();
