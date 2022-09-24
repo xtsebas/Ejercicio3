@@ -1,12 +1,15 @@
 package Library;
 
+import Functions.Choosething;
+
 import java.util.Scanner;
 
-public class Book {
+public class Book extends Choosething {
     private static String editorial;
     private static String autor;
     static Scanner in= new Scanner(System.in);
-    public Book(){
+    public Book(int Id, String title, String topic, int amount, int thing){
+        super(Id, title, topic, amount, thing);
         System.out.println("Ingrese el autor: ");
         setAutor(in.nextLine());
         System.out.println("Ingrese editorial: ");

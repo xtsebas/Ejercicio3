@@ -1,12 +1,15 @@
 package Library;
 
+import Functions.Choosething;
+
 import java.util.Scanner;
 
-public class Magazine {
+public class Magazine extends Choosething {
     private static int year;
     private static int number;
     static Scanner in= new Scanner(System.in);
-    public Magazine(){
+    public Magazine(int Id, String title, String topic, int amount, int thing){
+        super(Id, title, topic, amount, thing);
         System.out.println("Ingrese el año de creacion: ");
         setYear(in.nextInt());
         in.nextLine();
