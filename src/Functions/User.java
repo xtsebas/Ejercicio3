@@ -22,7 +22,7 @@ public class User {
         setAmountbooks(in.nextInt());
     }
 
-    public static String getName() {
+    public String getName() {
         return name;
     }
 
@@ -50,7 +50,7 @@ public class User {
         return amountbooks;
     }
 
-    public static void setAmountbooks(int amountbooks) {
+    public void setAmountbooks(int amountbooks) {
         User.amountbooks = amountbooks;
     }
 }
