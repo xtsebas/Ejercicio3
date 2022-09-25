@@ -9,6 +9,7 @@ import Library.Magazine;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.LinkedBlockingDeque;
 
 public class Controller {
     public static int id;
@@ -20,9 +21,11 @@ public class Controller {
     public static int Id;
     static List<User> USER= new ArrayList<>();
     static List<Choosething> things= new ArrayList<>();
+    static List<Integer> Lend= new ArrayList<>();
     static Scanner in= new Scanner(System.in);
     private static int libro;
     private static int ID;
+    private static int lend;
 
     public static User newuser(){
         User user= new User();
@@ -60,7 +63,7 @@ public class Controller {
         System.out.println("Cuantos ingresara a la blibloteca: ");
         amount=in.nextInt();
         in.nextLine();
-        System.out.println("Cual ingresas: \n1.Libro \n2.Revista \n2.Articulo");
+        System.out.println("De que tipo ingresa: \n1.Libro \n2.Revista \n3.Articulo");
         thing=in.nextInt();
         in.nextLine();
         if (thing==1){
@@ -103,6 +106,9 @@ public class Controller {
                     System.out.println("Disponibilidad: "+ choosething.getCondition() + "\nCantidad: " + choosething.getAmount());
                 }
                 System.out.println("/////////////////////////////////////");
+                break;
+            } else {
+                System.out.println("El libro no existe");
             }
         }
     }
@@ -114,16 +120,12 @@ public class Controller {
     }
 
     public static void lend(){
+        show();
+        System.out.println("Ingresar el Id de su eleccion");
+        libro=in.nextInt();
         for (Choosething choosething: things){
-            show();
-            System.out.println("Ingresar el Id de su eleccion");
-            libro=in.nextInt();
             if (libro==choosething.getId()){
                 if (choosething.getCondition() == "Disponible") {
-                    choosething.setAmount(choosething.getAmount()-1);
-                    if (choosething.getAmount()== 0){
-                        choosething.setCondition("Agotado");
-                    }
                     System.out.println("Cual es tu Id?");
                     ID=in.nextInt();
                     for (User user: USER){
@@ -131,15 +133,59 @@ public class Controller {
                             if (user.getAmountbooks()<5){
                                 user.setAmountbooks(user.getAmountbooks()+1);
                                 System.out.println("Su libro ha sido prestado a la persona con Id " + user.getIn());
+                                choosething.setAmount(choosething.getAmount()-1);
+                                if (choosething.getAmount()== 0){
+                                    choosething.setCondition("Agotado");
+                                }
+                                Lend.add(choosething.getId());
+                                break;
                             } else if (user.getAmountbooks()==5) {
                                 System.out.println("Usted ya esta en el limite de prestamos");
+                                break;
                             }
-                        } else if (ID!= user.getIn()) {
+                        } else {
                             System.out.println("Su usario no existe, debe crearlo para poder prestar un objeto de la bibloteca");
+                            break;
                         }
                     }
                 } else if (choosething.getCondition()=="Agotado") {
                     System.out.println("La eleccion no esta disponible en estos momentos");
+                    break;
+                }
+            } else {
+                System.out.println("El libro no existe en la bibloteca");
+            }
+        }
+    }
+
+    public static void Return(){
+        System.out.println("Cual es su Id: ");
+        ID=in.nextInt();
+        for (User user: USER){
+            if (ID==user.getIn()){
+                if (user.getAmountbooks()>0){
+                    System.out.println("Ingrese el Id del libro que desea regresar: ");
+                    libro=in.nextInt();
+                    for (Choosething choosething: things){
+                        if (libro==choosething.getId()){
+                            for (int i = 0; i < Lend.size(); i++) {
+                                if (libro== Lend.get(i)){
+                                    choosething.setAmount(choosething.getAmount()+1);
+                                    if (choosething.getCondition()=="Agotado"){
+                                        choosething.setCondition("Disponible");
+                                    }
+                                    System.out.println("El libro se ha devuelto con exito");
+                                    break;
+                                }else {
+                                    System.out.println("El libro no se ha prestado, intentelo de nuevo");
+                                }
+                            }
+                        } else {
+                            System.out.println("El libro no existe dentro de la bibloteca");
+                        }
+                    }
+                } else {
+                    System.out.println("Usted no ha prestado ningun libro, intentelo mas tarde");
                 }
             }
         }
