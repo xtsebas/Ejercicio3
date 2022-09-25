@@ -5,6 +5,12 @@ import Functions.User;
 
 import java.util.Scanner;
 
+/**
+ * Esta clase es la principal, la unica que interactua con el usuario
+ * @author Sebastian
+ * @version 24/09/2022
+ */
+
 public class DriverProgram {
     public static User person;
     public static Choosething choose;

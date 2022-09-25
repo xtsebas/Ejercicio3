@@ -1,4 +1,7 @@
 package Model;
+/**
+ * esta clase ayuda a realizar funciones, las cuales obtendran objetos de clases las cuales ayudaran a que el procedimiento sea mas facil
+ */
 
 import Functions.Choosething;
 import Functions.User;
@@ -9,9 +12,11 @@ import Library.Magazine;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.concurrent.LinkedBlockingDeque;
 
 public class Controller {
+    /**
+     * Campos y variables de las clases
+     */
     public static int id;
     public static String title;
     public static String topic;
@@ -27,31 +32,47 @@ public class Controller {
     private static int ID;
     private static int lend;
 
+    /*
+    *funcion que crea un objeto de tipo User
+    * @return el objeto user
+     */
     public static User newuser(){
         User user= new User();
         USER.add(user);
 
         return user;
     }
-
+    /*
+        funcion que crea un objeto de tipo Book
+        @return el objeto book
+      */
     public static Book newBook(){
         Book book= new Book(id,title,topic,amount,thing);
         things.add(book);
         return book;
     }
+    /*
+    funcion que crea un objeto de tipo Magazine
+    @return el objeto magazine
+     */
 
     public static Magazine newMagazine(){
         Magazine magazine= new Magazine(id,title,topic,amount,thing);
         things.add(magazine);
         return magazine;
     }
-
+    /*
+        funcion que crea un objeto de tipo Article
+        @return el objeto article
+         */
     public static Article newArticle(){
         Article article= new Article(id, title, topic, amount, thing);
         things.add(article);
         return article;
     }
-
+    /*
+        funcion que crea un objeto de tipo Choosething
+         */
     public static void newChoose(){
         System.out.println("Cual es el Id: ");
         id=in.nextInt();
@@ -75,13 +96,18 @@ public class Controller {
         }
 
     }
-
+    /*
+        funcion que muestra objetos de tipo User
+         */
     public static void showUser(){
         for (User user: USER){
             System.out.println("/////////////////////////////////////////");
             System.out.println(user.getIn() + "\n" + user.getName() + "\n" + user.getAmountbooks());
         }
     }
+    /*
+    funcion que busca los libro/revista/articulos segun el Id anteriormente puesto por el usuario
+     */
     public static void searchID(){
         System.out.println("Ingrese Id: ");
         Id=in.nextInt();
@@ -112,13 +138,18 @@ public class Controller {
             }
         }
     }
+    /*
+    funcion muestra en orden los libros/revistas/articulos previamente agregados
+     */
     public static void show(){
         for (Choosething choosething: things){
             System.out.println("//////////////////////////////////////////////");
             System.out.println(choosething.getId() + "\n" + choosething.getTitle() + "\n" + choosething.getCondition());
         }
     }
-
+    /*
+        funcion que permite a los usuarios prestar un objeto de la bibloteca
+         */
     public static void lend(){
         show();
         System.out.println("Ingresar el Id de su eleccion");
@@ -157,7 +188,9 @@ public class Controller {
             }
         }
     }
-
+    /*
+        funcion que permite a los usuarios regresar un objeto prestado
+         */
     public static void Return(){
         System.out.println("Cual es su Id: ");
         ID=in.nextInt();
