@@ -1,13 +1,12 @@
 package Functions;
-
-import Library.Article;
-import Library.Book;
-import Library.Magazine;
-import Model.Controller;
-
-import java.util.Scanner;
+/*
+*esta clase crea objetos de tipo Choosthing, siendo una superclase (clase padre) para los tipos de objetos que se pueden encontrar en la bibloteca
+ */
 
 public class Choosething {
+    /*
+    * variables de la clase
+     */
     protected int Id;
     protected String title;
     protected String topic;
@@ -15,6 +14,10 @@ public class Choosething {
     protected String condition;
     protected int thing;
 
+/*
+*constructor para crear un objeto de este tipo
+* @param Id del objeto, title el titulo del objeto, topic el tipo de materia, amount la cantidad que se ingresara, thing el tipo de objeto que se ingresara
+ */
     public Choosething (int Id, String title, String topic, int amount, int thing){
         this.Id=Id;
         this.title=title;
@@ -27,7 +30,9 @@ public class Choosething {
         }
         this.thing=thing;
     }
-
+/*
+* getters y setters de los objetos de la clase Choosething
+ */
 
     public int getId() {
         return Id;

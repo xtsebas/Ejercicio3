@@ -1,14 +1,22 @@
 package Functions;
 
 import java.util.Scanner;
+/*
+*clase user para crear usuarios
+ */
 
 public class User {
+    /*
+    *variables de la clase user
+     */
     private static String name;
     private static int In;
     private static String direction;
     private static int amountbooks;
     Scanner in= new Scanner(System.in);
-
+/*
+*Constructor para un objeto de tipo User
+ */
     public User(){
         System.out.println("/////////////////////////////////////////////");
         System.out.println("Ingrese su nombre: ");
@@ -21,7 +29,9 @@ public class User {
         System.out.println("Ingrese cuantos libros/revistas/articulos tiene en su posesion: ");
         setAmountbooks(in.nextInt());
     }
-
+/*
+*getters y setters de la clase User
+ */
     public String getName() {
         return name;
     }
